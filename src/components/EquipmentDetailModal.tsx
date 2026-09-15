@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
 import { Equipment } from '../types';
+import { COMPANY_INFO } from '../data/miningData';
 import { 
   X, 
-  Check, 
-  FileText, 
   Wrench, 
   ShieldCheck, 
   Layers, 
-  Gauge, 
-  Zap, 
-  ArrowRight,
-  Download
+  MessageSquare
 } from 'lucide-react';
 
 interface EquipmentDetailModalProps {
@@ -25,14 +21,8 @@ export const EquipmentDetailModal: React.FC<EquipmentDetailModalProps> = ({
   onOpenQuote,
 }) => {
   const [activeTab, setActiveTab] = useState<'specs' | 'features' | 'applications'>('specs');
-  const [downloadSuccess, setDownloadSuccess] = useState(false);
 
   if (!equipment) return null;
-
-  const handleDownloadSheet = () => {
-    setDownloadSuccess(true);
-    setTimeout(() => setDownloadSuccess(false), 3000);
-  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
@@ -221,22 +211,15 @@ export const EquipmentDetailModal: React.FC<EquipmentDetailModalProps> = ({
 
         {/* Modal Bottom Actions */}
         <div className="p-4 sm:p-6 bg-[#0e141c] border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-3">
-          <button
-            onClick={handleDownloadSheet}
-            className="w-full sm:w-auto px-4 py-2.5 bg-[#1e2632] hover:bg-[#283242] text-gray-300 hover:text-white text-xs font-mono-tech uppercase rounded flex items-center justify-center gap-2 border border-white/[0.08] transition-colors"
+          <a
+            href={`${COMPANY_INFO.whatsappLink}?text=${encodeURIComponent(`Hola Hakim Integral Service, quisiera información del ${equipment.name}.`)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto px-4 py-2.5 bg-[#1e2632] hover:bg-[#283242] text-emerald-300 hover:text-emerald-200 text-xs font-mono-tech uppercase rounded flex items-center justify-center gap-2 border border-white/[0.08] transition-colors"
           >
-            {downloadSuccess ? (
-              <>
-                <Check className="w-4 h-4 text-cyan-400" />
-                <span className="text-cyan-400">Datasheet PDF Descargado</span>
-              </>
-            ) : (
-              <>
-                <Download className="w-4 h-4" />
-                <span>Descargar Ficha Técnica (.PDF)</span>
-              </>
-            )}
-          </button>
+            <MessageSquare className="w-4 h-4" />
+            <span>Consultar por WhatsApp</span>
+          </a>
 
           <div className="flex items-center gap-3 w-full sm:w-auto">
             <button

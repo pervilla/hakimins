@@ -24,7 +24,6 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ currentScreen, onNavigate, onOpenQuote }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [lang, setLang] = useState<'ES' | 'EN'>('ES');
   const { theme, toggleTheme } = useTheme();
 
   const navItems: { id: ScreenView; label: string; badge?: string }[] = [
@@ -150,27 +149,6 @@ export const Header: React.FC<HeaderProps> = ({ currentScreen, onNavigate, onOpe
             <span className="font-mono-tech text-[10px] uppercase tracking-wider text-gray-200">
               PERÚ HQ
             </span>
-          </div>
-
-          {/* Language Selector */}
-          <div className="hidden md:flex items-center bg-[#161c24] border border-white/[0.08] px-2 py-1 rounded text-xs font-mono-tech">
-            <button 
-              onClick={() => setLang('ES')}
-              className={`px-1.5 py-0.5 rounded transition-colors ${
-                lang === 'ES' ? 'text-amber-400 font-bold bg-amber-500/15' : 'text-gray-400 hover:text-white'
-              }`}
-            >
-              ES
-            </button>
-            <span className="text-gray-600 px-0.5">/</span>
-            <button 
-              onClick={() => setLang('EN')}
-              className={`px-1.5 py-0.5 rounded transition-colors ${
-                lang === 'EN' ? 'text-amber-400 font-bold bg-amber-500/15' : 'text-gray-400 hover:text-white'
-              }`}
-            >
-              EN
-            </button>
           </div>
 
           {/* Dark / Light Theme Toggle Button */}

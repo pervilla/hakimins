@@ -325,13 +325,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
               )}
             </button>
             <span className="text-gray-700 hidden sm:inline">|</span>
-            <span className="text-gray-400 hover:text-white transition-colors cursor-pointer">
-              Términos de Servicio
-            </span>
-            <span className="text-gray-700">|</span>
-            <span className="text-gray-400 hover:text-white transition-colors cursor-pointer">
-              Seguridad Industrial
-            </span>
+            <button
+              onClick={() => onNavigate('contacto')}
+              className="text-gray-400 hover:text-amber-400 transition-colors"
+            >
+              Contacto
+            </button>
             <span className="text-gray-700 hidden sm:inline">|</span>
             <a
               href={COMPANY_INFO.website}

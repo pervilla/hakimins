@@ -5,14 +5,14 @@ import {
   X, 
   Send, 
   CheckCircle2, 
-  Phone, 
-  Building2, 
-  MapPin, 
   ShieldCheck, 
-  Clock, 
   MessageSquare,
-  Wrench
+  Wrench,
+  AlertTriangle,
+  Loader2
 } from 'lucide-react';
+
+const API_URL = `${import.meta.env.BASE_URL}api/contacto.php`;
 
 interface QuoteModalProps {
   initialEquipment?: Equipment | null;
@@ -26,6 +26,8 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
   onClose,
 }) => {
   const [submittedTicket, setSubmittedTicket] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [formData, setFormData] = useState<QuoteFormData>({
     nombre: '',
     empresa: '',
@@ -41,10 +43,29 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
     comentarios: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const randomTicket = `RFQ-HKM-${Math.floor(1000 + Math.random() * 9000)}`;
-    setSubmittedTicket(randomTicket);
+    if (submitting) return;
+    setSubmitError(null);
+    setSubmitting(true);
+    try {
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json().catch(() => null);
+      if (!res.ok || !data || data.status !== 'success') {
+        throw new Error(data?.message || 'No se pudo enviar la solicitud.');
+      }
+      setSubmittedTicket(`RFQ-HKM-${Math.floor(1000 + Math.random() * 9000)}`);
+    } catch (err) {
+      setSubmitError(
+        'No pudimos enviar su solicitud. Verifique su conexión o escríbanos por WhatsApp.'
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const whatsappMessage = encodeURIComponent(
@@ -102,8 +123,8 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   <span className="text-amber-400 font-bold">{formData.tipoRequerimiento}</span>
                 </div>
                 <div className="flex justify-between border-b border-white/[0.06] pb-1.5">
-                  <span className="text-gray-500">TIEMPO ESTIMADO DE RESPUESTA:</span>
-                  <span className="text-cyan-400 font-bold">&lt; 4 Horas Hábiles</span>
+                  <span className="text-gray-500">RESPUESTA:</span>
+                  <span className="text-cyan-400 font-bold">Le contactaremos a la brevedad</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-500">ATENCIÓN PLANTA CHACLACAYO:</span>
@@ -282,6 +303,14 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                 />
               </div>
 
+              {/* Error Banner */}
+              {submitError && (
+                <div className="flex items-start gap-2.5 p-3.5 bg-red-500/10 border border-red-500/30 rounded text-xs text-red-200">
+                  <AlertTriangle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
+                  <span>{submitError}</span>
+                </div>
+              )}
+
               {/* Submit Row */}
               <div className="flex items-center justify-between pt-2 border-t border-white/[0.08]">
                 <div className="text-[11px] font-mono-tech text-gray-500">
@@ -297,10 +326,20 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   </button>
                   <button
                     type="submit"
-                    className="px-6 py-2.5 bg-[#ffb800] hover:bg-[#ffc933] text-[#1a1200] font-heading font-extrabold text-xs uppercase tracking-wider rounded flex items-center gap-2 shadow-[0_0_20px_rgba(255,184,0,0.3)] transition-all"
+                    disabled={submitting}
+                    className="px-6 py-2.5 bg-[#ffb800] hover:bg-[#ffc933] disabled:opacity-60 disabled:cursor-not-allowed text-[#1a1200] font-heading font-extrabold text-xs uppercase tracking-wider rounded flex items-center gap-2 shadow-[0_0_20px_rgba(255,184,0,0.3)] transition-all"
                   >
-                    <span>Enviar Requerimiento</span>
-                    <Send className="w-3.5 h-3.5 text-black" />
+                    {submitting ? (
+                      <>
+                        <Loader2 className="w-3.5 h-3.5 text-black animate-spin" />
+                        <span>Enviando...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Enviar Requerimiento</span>
+                        <Send className="w-3.5 h-3.5 text-black" />
+                      </>
+                    )}
                   </button>
                 </div>
               </div>

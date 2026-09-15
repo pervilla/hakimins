@@ -1,0 +1,251 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Montserrat', sans-serif;
+  }
+  .font-mono-tech {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #090e14;
+}
+::-webkit-scrollbar-thumb {
+  background: #232c38;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffb800;
+}
+
+/* =========================================================
+   LIGHT THEME ADAPTIVE SYSTEM
+   High-contrast, clean industrial light palette for Hakim
+   ========================================================= */
+
+html.light {
+  color-scheme: light;
+}
+
+html.light body,
+html.light #root,
+html.light .theme-root {
+  background-color: #f4f6f9 !important;
+  color: #1e293b !important;
+}
+
+/* Scrollbar in light mode */
+html.light ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+html.light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #ffb800;
+}
+
+/* Background surfaces in light mode */
+html.light .bg-\[\#090f16\] {
+  background-color: #f4f6f9 !important;
+}
+html.light .bg-\[\#0e141c\] {
+  background-color: #ffffff !important;
+}
+html.light .bg-\[\#121820\] {
+  background-color: #ffffff !important;
+}
+html.light .bg-\[\#161c24\] {
+  background-color: #f8fafc !important;
+}
+html.light .bg-\[\#1e2632\] {
+  background-color: #f1f5f9 !important;
+}
+html.light .bg-\[\#060a0f\] {
+  background-color: #e2e8f0 !important;
+}
+html.light .bg-\[\#0b1016\] {
+  background-color: #ffffff !important;
+}
+html.light .bg-\[\#0b0f14\] {
+  background-color: #ffffff !important;
+}
+html.light .bg-\[\#1a222d\] {
+  background-color: #f1f5f9 !important;
+}
+html.light .bg-\[\#1c2430\] {
+  background-color: #e2e8f0 !important;
+}
+html.light .bg-white\/\[0\.04\],
+html.light .bg-white\/\[0\.05\],
+html.light .bg-white\/\[0\.08\] {
+  background-color: rgba(15, 23, 42, 0.04) !important;
+}
+
+/* Header in light mode */
+html.light header.bg-\[\#090f16\]\/90 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-bottom-color: rgba(15, 23, 42, 0.09) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.06) !important;
+}
+html.light header .bg-\[\#060a0f\] {
+  background-color: #f1f5f9 !important;
+  border-bottom-color: rgba(15, 23, 42, 0.08) !important;
+  color: #475569 !important;
+}
+html.light .mobile-drawer-bg {
+  background-color: #ffffff !important;
+}
+
+/* Borders in light mode */
+html.light .border-white\/\[0\.04\],
+html.light .border-white\/\[0\.05\],
+html.light .border-white\/\[0\.06\],
+html.light .border-white\/\[0\.07\],
+html.light .border-white\/\[0\.08\],
+html.light .border-white\/\[0\.1\],
+html.light .border-white\/\[0\.12\],
+html.light .border-white\/\[0\.15\] {
+  border-color: rgba(15, 23, 42, 0.1) !important;
+}
+html.light .border-white\/\[0\.2\] {
+  border-color: rgba(15, 23, 42, 0.18) !important;
+}
+
+/* Shadows in light mode */
+html.light .shadow-2xl {
+  box-shadow: 0 10px 30px -4px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.04) !important;
+}
+html.light .shadow-xl {
+  box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.07) !important;
+}
+
+/* High contrast typography in light mode */
+html.light h1.text-white,
+html.light h2.text-white,
+html.light h3.text-white,
+html.light h4.text-white,
+html.light strong.text-white {
+  color: #0a1017 !important;
+}
+html.light p.text-gray-300,
+html.light span.text-gray-300,
+html.light div.text-gray-300 {
+  color: #334155 !important;
+}
+html.light p.text-gray-400,
+html.light span.text-gray-400,
+html.light div.text-gray-400 {
+  color: #64748b !important;
+}
+html.light span.text-gray-200,
+html.light p.text-gray-200,
+html.light div.text-gray-200 {
+  color: #1e293b !important;
+}
+html.light .text-white:not(.keep-white) {
+  color: #0a1017;
+}
+
+/* Form controls in light mode */
+html.light input,
+html.light select,
+html.light textarea {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+html.light input:focus,
+html.light select:focus,
+html.light textarea:focus {
+  border-color: #ffb800 !important;
+  box-shadow: 0 0 0 2px rgba(255, 184, 0, 0.2) !important;
+}
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Gradients in light mode */
+html.light .from-\[\#121820\] {
+  --tw-gradient-from: #ffffff !important;
+}
+html.light .to-\[\#161c24\] {
+  --tw-gradient-to: #f1f5f9 !important;
+}
+html.light .from-\[\#161c24\] {
+  --tw-gradient-from: #f8fafc !important;
+}
+html.light .to-\[\#121820\] {
+  --tw-gradient-to: #ffffff !important;
+}
+html.light .to-\[\#090f16\] {
+  --tw-gradient-to: #ffffff !important;
+}
+html.light .from-\[\#090f16\] {
+  --tw-gradient-from: #f4f6f9 !important;
+}
+
+/* Preserve bright buttons, badges and hero photo text */
+.keep-white,
+.keep-white *,
+.keep-white h1,
+.keep-white p,
+.keep-white span {
+  color: #ffffff !important;
+}
+
+html.light .bg-\[\#ffb800\],
+html.light .bg-\[\#ffb800\] * {
+  color: #1a1200 !important;
+}
+html.light .bg-cyan-500,
+html.light .bg-cyan-500 * {
+  color: #000000 !important;
+}
+
+/* Hero Section Overlay in light mode: retains dramatic readability */
+html.light .hero-overlay-scrim {
+  background: linear-gradient(to top, rgba(244, 246, 249, 0.95) 0%, rgba(244, 246, 249, 0.75) 45%, rgba(244, 246, 249, 0.88) 100%) !important;
+}
+html.light .hero-content-light h1 {
+  color: #0a1017 !important;
+}
+html.light .hero-content-light p {
+  color: #334155 !important;
+}
+html.light .hero-content-light .bg-\[\#161c24\]\/90 {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+}
+html.light .hero-content-light .bg-\[\#0e141c\]\/90 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+}
+html.light .hero-content-light .bg-\[\#1e2632\]\/80 {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+html.light .hero-content-light .bg-\[\#1e2632\]\/80 * {
+  color: #0f172a !important;
+}
+
+/* Video simulation modal always stays cinematic dark */
+.video-modal-container,
+.video-modal-container * {
+  color-scheme: dark;
+}
+
+

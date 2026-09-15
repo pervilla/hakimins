@@ -1,25 +1,44 @@
+# ============================================================
+#  Hakim Integral Service S.A.C. - Configuración Apache
+# ============================================================
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # Forzar HTTPS (opcional si ya está activo en cPanel)
+  # --- Forzar HTTPS (descomentar en el hosting de producción) ---
   # RewriteCond %{HTTPS} off
   # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+  # --- SPA (React Router) ---
   # Si el archivo o directorio existe físicamente, servirlo directamente
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
-  # Si no existe, redirigir a index.html para la SPA de React
+  # Si no existe, servir index.html para que React Router maneje la ruta
   RewriteRule ^ index.html [L]
 </IfModule>
 
-# Compresión Gzip para mayor velocidad
+DirectoryIndex index.html
+
+# --- Proteger archivos de configuración locales (credenciales SMTP) ---
+<FilesMatch "\.local\.php$">
+  Require all denied
+</FilesMatch>
+
+# --- Cabeceras de seguridad ---
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# --- Compresión Gzip ---
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json image/svg+xml
 </IfModule>
 
-# Cabeceras de caché para assets estáticos
+# --- Caché de assets estáticos ---
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType image/jpg "access plus 1 year"

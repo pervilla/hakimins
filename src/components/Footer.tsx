@@ -46,13 +46,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
           <div className="p-8 sm:p-12 bg-gradient-to-r from-[#121820] to-[#161c24] border border-amber-500/30 rounded-lg shadow-2xl flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
             <div className="flex flex-col gap-2 max-w-xl">
               <span className="font-mono-tech text-xs text-amber-400 uppercase tracking-widest font-semibold">
-                // INICIE EL DESPLIEGUE OPERACIONAL
+                // SOLICITE UNA COTIZACIÓN
               </span>
               <h3 className="font-heading text-2xl sm:text-3xl text-white font-extrabold uppercase tracking-tight">
-                ¿Preparado para transformar la escala de su explotación minera?
+                ¿Necesita maquinaria o servicio técnico para su operación?
               </h3>
               <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
-                Solicite una consultoría técnica con nuestro equipo de ingeniería o configure los requerimientos de overhaul y suministro de su unidad minera.
+                Cuéntenos qué equipo necesita, ya sea fabricación, mantenimiento, overhaul, repuestos o alquiler, y le responderemos con una propuesta.
               </p>
             </div>
 
@@ -63,11 +63,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
                 onChange={(e) => setSelectedSector(e.target.value)}
                 className="bg-[#0b0f14] border border-white/[0.15] text-gray-200 text-xs font-mono-tech px-4 py-3.5 rounded focus:outline-none focus:border-amber-400"
               >
-                <option value="Minería Subterránea (Socavón)">Minería Subterránea (Socavón)</option>
-                <option value="Minería de Tajo Abierto">Minería de Tajo Abierto</option>
-                <option value="Overhaul de Jumbos y Scoops">Overhaul de Jumbos y Scoops</option>
-                <option value="Suministro de Repuestos Críticos">Suministro de Repuestos Críticos</option>
-                <option value="Banco Hidráulico & Tableros">Banco Hidráulico & Tableros</option>
+                <option value="Fabricación de Equipos">Fabricación de Equipos a Medida</option>
+                <option value="Mantenimiento y Overhaul">Mantenimiento, Reparación y Overhaul</option>
+                <option value="Venta y Suministro de Repuestos">Venta y Suministro de Repuestos</option>
+                <option value="Alquiler y Venta de Maquinaria">Alquiler y Venta de Maquinaria</option>
+                <option value="Tableros Eléctricos">Tableros Eléctricos</option>
+                <option value="Asesoramiento y Capacitación">Asesoramiento y Capacitación</option>
               </select>
 
               <input
@@ -111,30 +112,30 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
               <div className="p-1 rounded bg-[#161c24] border border-amber-500/30">
                 <img 
                   src={COMPANY_INFO.logoUrl} 
-                  alt="Hakim Heavy Industries" 
+                  alt="Hakim Integral Service" 
                   className="h-9 w-auto object-contain"
                 />
               </div>
               <div className="flex flex-col">
                 <span className="font-heading font-extrabold text-lg text-white uppercase">
-                  HAKIM HEAVY IND.
+                  HAKIM INTEGRAL SERVICE
                 </span>
                 <span className="text-[10px] font-mono-tech text-amber-400 uppercase tracking-widest">
-                  Integral Service S.A.C.
+                  Maquinaria & Minería
                 </span>
               </div>
             </div>
 
             <p className="text-xs text-gray-400 leading-relaxed">
-              Líderes en ingeniería mecánica pesada, fabricación de jumbos electrohidráulicos, mantenimiento predictivo y overhaul a cero horas para la minería subterránea y de tajo abierto del Perú y la región andina.
+              Empresa peruana dedicada a la fabricación, mantenimiento, reparación y overhaul de equipos para la minería subterránea de pequeña y mediana escala. Maquinaria simple, de fácil operación y bajo costo de mantenimiento.
             </p>
 
             <div className="flex flex-col gap-1.5 text-xs font-mono-tech text-gray-400 pt-2">
               <div><strong className="text-gray-200">RUC:</strong> {COMPANY_INFO.ruc}</div>
-              <div><strong className="text-gray-200">Planta Chaclacayo:</strong> {COMPANY_INFO.headquarters.address}</div>
-              <div><strong className="text-gray-200">Taller Ate:</strong> Pj. Gral. J. Velasco, Ate, Lima</div>
-              <div><strong className="text-gray-200">Central Telefónica:</strong> {COMPANY_INFO.phone}</div>
+              <div><strong className="text-gray-200">Dirección:</strong> {COMPANY_INFO.address}</div>
+              <div><strong className="text-gray-200">Teléfonos:</strong> {COMPANY_INFO.phone} | {COMPANY_INFO.phoneSecondary}</div>
               <div><strong className="text-gray-200">Email:</strong> {COMPANY_INFO.emailSales}</div>
+              <div><strong className="text-gray-200">Web:</strong> hakimins.com.pe</div>
             </div>
           </div>
 
@@ -147,33 +148,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
               <li>
                 <button 
                   onClick={() => onNavigate('maquinaria')} 
-                  className="hover:text-amber-400 transition-colors text-left"
-                >
-                  Pala Hidráulica Masiva Serie Titan-X (820T)
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => onNavigate('maquinaria')} 
-                  className="hover:text-amber-400 transition-colors text-left"
-                >
-                  Camión Autónomo Haul-900 (400T)
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => onNavigate('maquinaria')} 
-                  className="hover:text-amber-400 transition-colors text-left"
-                >
-                  Perforadoras de Gran Diámetro Drill-Max
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => onNavigate('maquinaria')} 
                   className="hover:text-amber-400 transition-colors text-left text-amber-300 font-semibold"
                 >
-                  Jumbos Electrohidráulicos Subterráneos (Hakim)
+                  Jumbos Frontoneros Electrohidráulicos
                 </button>
               </li>
               <li>
@@ -181,7 +158,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
                   onClick={() => onNavigate('maquinaria')} 
                   className="hover:text-amber-400 transition-colors text-left"
                 >
-                  Cargadores LHD Scooptram Diésel & Batería
+                  Jumbos Empernadores (Bolter)
                 </button>
               </li>
               <li>
@@ -189,7 +166,31 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
                   onClick={() => onNavigate('maquinaria')} 
                   className="hover:text-amber-400 transition-colors text-left"
                 >
-                  Perforadoras Diamantinas para Sondajes
+                  Desatadores de Rocas (Scaler)
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => onNavigate('maquinaria')} 
+                  className="hover:text-amber-400 transition-colors text-left"
+                >
+                  Scoops LHD de Bajo Perfil
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => onNavigate('maquinaria')} 
+                  className="hover:text-amber-400 transition-colors text-left"
+                >
+                  Dumpers Mineros Subterráneos
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => onNavigate('maquinaria')} 
+                  className="hover:text-amber-400 transition-colors text-left"
+                >
+                  Equipos de Sondaje Diamantino
                 </button>
               </li>
             </ul>
@@ -206,7 +207,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
                   onClick={() => onNavigate('servicios')} 
                   className="hover:text-amber-400 transition-colors text-left"
                 >
-                  Overhaul Integral Cero Horas en Taller & Mina
+                  Mantenimiento, Reparación y Overhaul
                 </button>
               </li>
               <li>
@@ -214,7 +215,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
                   onClick={() => onNavigate('servicios')} 
                   className="hover:text-amber-400 transition-colors text-left"
                 >
-                  Fabricación y Diseño de Jumbos a Medida
+                  Fabricación y Diseño de Equipos
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => onNavigate('repuestos')} 
+                  className="hover:text-amber-400 transition-colors text-left"
+                >
+                  Venta y Suministro de Repuestos
                 </button>
               </li>
               <li>
@@ -222,7 +231,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
                   onClick={() => onNavigate('servicios')} 
                   className="hover:text-amber-400 transition-colors text-left"
                 >
-                  Tableros Eléctricos Mineros NEMA 4X / IP66
+                  Alquiler y Venta de Maquinaria
                 </button>
               </li>
               <li>
@@ -230,15 +239,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
                   onClick={() => onNavigate('servicios')} 
                   className="hover:text-amber-400 transition-colors text-left"
                 >
-                  Banco de Pruebas Hidráulico 500 Bar
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => onNavigate('telemetria')} 
-                  className="hover:text-cyan-400 transition-colors text-left"
-                >
-                  Telemetría Satelital Hakim Fleet OS™
+                  Tableros Eléctricos
                 </button>
               </li>
               <li>
@@ -246,7 +247,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
                   onClick={() => onNavigate('servicios')} 
                   className="hover:text-amber-400 transition-colors text-left"
                 >
-                  Capacitación y Certificación de Operadores
+                  Fabricación de Piezas Mecánicas
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => onNavigate('servicios')} 
+                  className="hover:text-amber-400 transition-colors text-left"
+                >
+                  Asesoramiento y Capacitación
                 </button>
               </li>
             </ul>
@@ -260,34 +269,32 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
             <div className="flex flex-col gap-2 text-xs text-gray-400">
               <div className="flex items-center gap-1.5 text-gray-300">
                 <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                <span>Lima HQ (Chaclacayo)</span>
+                <span>Planta Principal: Chaclacayo, Lima</span>
               </div>
-              <div className="flex items-center gap-1.5 text-gray-300">
-                <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                <span>Taller Ate (Mecanizados)</span>
-              </div>
-              <div className="flex items-center gap-1.5 text-gray-300">
-                <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                <span>Base Arequipa (Sur)</span>
-              </div>
-              <div className="flex items-center gap-1.5 text-gray-300">
-                <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                <span>Base Huancayo (Centro)</span>
-              </div>
-              <div className="flex items-center gap-1.5 text-gray-300">
-                <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                <span>Base Trujillo (Norte)</span>
+              <div className="flex items-start gap-1.5 text-gray-400">
+                <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+                <span>Atención a unidades mineras en todo el Perú</span>
               </div>
             </div>
 
-            {/* ISO Badge Pills */}
+            {/* Contact Links */}
             <div className="pt-2 flex flex-col gap-1 text-[10px] font-mono-tech">
-              <span className="px-2 py-0.5 bg-[#161c24] border border-white/[0.08] rounded text-cyan-300">
-                ISO 9001 • ISO 14001
-              </span>
-              <span className="px-2 py-0.5 bg-[#161c24] border border-white/[0.08] rounded text-amber-300">
-                ISO 45001 • DS 024
-              </span>
+              <a
+                href={COMPANY_INFO.whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-2 py-0.5 bg-[#161c24] border border-white/[0.08] rounded text-emerald-300 hover:text-emerald-200 transition-colors"
+              >
+                WhatsApp: {COMPANY_INFO.whatsapp}
+              </a>
+              <a
+                href={COMPANY_INFO.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-2 py-0.5 bg-[#161c24] border border-white/[0.08] rounded text-cyan-300 hover:text-cyan-200 transition-colors"
+              >
+                Facebook / Hakim Integral Service
+              </a>
             </div>
           </div>
 
@@ -326,10 +333,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
               Seguridad Industrial
             </span>
             <span className="text-gray-700 hidden sm:inline">|</span>
-            <span className="text-cyan-400 flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-              SYS_ACTIVE // GRID_PERÚ_ONLINE
-            </span>
+            <a
+              href={COMPANY_INFO.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-cyan-400 hover:text-cyan-300 transition-colors"
+            >
+              hakimins.com.pe
+            </a>
           </div>
         </div>
 

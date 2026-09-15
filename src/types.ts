@@ -3,15 +3,29 @@ export type ScreenView =
   | 'maquinaria' 
   | 'servicios' 
   | 'repuestos' 
-  | 'telemetria' 
-  | 'corporativo';
+  | 'corporativo' 
+  | 'contacto';
+
+export type EquipmentLine =
+  | 'desarrollo'
+  | 'fortificacion'
+  | 'desatado'
+  | 'acarreo'
+  | 'sondaje';
+
+export interface EquipmentSection {
+  minWidth: number;
+  maxWidth: number;
+  minHeight: number;
+  maxHeight: number;
+}
 
 export interface Equipment {
   id: string;
   name: string;
   series: string;
-  category: 'acarreo' | 'excavacion' | 'perforacion' | 'subterraneo';
-  categoryLabel: string;
+  line: EquipmentLine;
+  lineLabel: string;
   environment: 'superficie' | 'subterranea' | 'mixto';
   headline: string;
   description: string;
@@ -21,6 +35,7 @@ export interface Equipment {
   badge?: string;
   partnerBrand?: string;
   isAutonomous?: boolean;
+  section?: EquipmentSection;
   specs: {
     capacidad: string;
     potencia: string;
@@ -42,6 +57,7 @@ export interface ServiceDetail {
   category: string;
   iconName: string;
   description: string;
+  subServices?: { title: string; description: string }[];
   processSteps: string[];
   standards: string[];
   deliverable: string;
@@ -59,25 +75,6 @@ export interface SparePart {
   stockStatus: 'Inmediato' | '24-48h en Mina' | 'Bajo Pedido';
   description: string;
   oemReference: string;
-}
-
-export interface TelemetryNode {
-  id: string;
-  name: string;
-  model: string;
-  unitCode: string;
-  mineSite: string;
-  location: string;
-  status: 'Operativo' | 'En Ciclo' | 'Mantenimiento Preventivo' | 'Standby';
-  engineTemp: number; // °C
-  hydraulicPressure: number; // bar
-  fuelOrBattery: number; // %
-  vibrationMmS: number;
-  payloadTon: number;
-  neuralLatencyMs: number;
-  distanceObstacleM: number;
-  coordinates: string;
-  alert?: string;
 }
 
 export interface QuoteFormData {

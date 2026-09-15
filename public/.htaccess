@@ -1,6 +1,5 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteBase /
 
   # Forzar HTTPS (opcional si ya está activo en cPanel)
   # RewriteCond %{HTTPS} off

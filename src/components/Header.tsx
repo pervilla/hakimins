@@ -29,11 +29,11 @@ export const Header: React.FC<HeaderProps> = ({ currentScreen, onNavigate, onOpe
 
   const navItems: { id: ScreenView; label: string; badge?: string }[] = [
     { id: 'inicio', label: 'Inicio' },
-    { id: 'maquinaria', label: 'Maquinaria & Equipos', badge: 'Catálogo' },
-    { id: 'servicios', label: 'Overhaul & Servicios' },
+    { id: 'maquinaria', label: 'Equipos', badge: 'Catálogo' },
+    { id: 'servicios', label: 'Servicios' },
     { id: 'repuestos', label: 'Repuestos' },
-    { id: 'telemetria', label: 'Hakim Fleet OS™', badge: 'Live' },
-    { id: 'corporativo', label: 'Corporativo' },
+    { id: 'corporativo', label: 'Nosotros' },
+    { id: 'contacto', label: 'Contacto' },
   ];
 
   const handleNavClick = (screen: ScreenView) => {
@@ -52,7 +52,7 @@ export const Header: React.FC<HeaderProps> = ({ currentScreen, onNavigate, onOpe
             HAKIM INTEGRAL SERVICE S.A.C. // RUC: {COMPANY_INFO.ruc}
           </span>
           <span className="text-gray-600">|</span>
-          <span>PLANTA PRINCIPAL: CHACLACAYO, LIMA - TALLER ATE // BASES: AREQUIPA - HUANCAYO</span>
+          <span>PLANTA PRINCIPAL: CHACLACAYO, LIMA — PERÚ</span>
         </div>
         <div className="flex items-center gap-5">
           <a 
@@ -65,7 +65,7 @@ export const Header: React.FC<HeaderProps> = ({ currentScreen, onNavigate, onOpe
           <span className="text-gray-600">|</span>
           <span className="text-cyan-400 flex items-center gap-1">
             <Radio className="w-3 h-3 animate-pulse" />
-            DESPACHO 24/7 INTERIOR MINA
+            SOPORTE TÉCNICO ESPECIALIZADO
           </span>
         </div>
       </div>
@@ -82,7 +82,7 @@ export const Header: React.FC<HeaderProps> = ({ currentScreen, onNavigate, onOpe
             <div className="relative p-1 rounded bg-[#161c24] border border-amber-500/20 group-hover:border-amber-500/50 transition-all">
               <img 
                 src={COMPANY_INFO.logoUrl} 
-                alt="Hakim Heavy Industries Logo" 
+                alt="Hakim Integral Service Logo" 
                 className="h-9 w-auto object-contain transition-transform group-hover:scale-105"
               />
             </div>
@@ -92,11 +92,11 @@ export const Header: React.FC<HeaderProps> = ({ currentScreen, onNavigate, onOpe
                   HAKIM
                 </span>
                 <span className="font-heading font-semibold text-xs sm:text-sm tracking-widest text-amber-400 uppercase">
-                  HEAVY IND.
+                  INTEGRAL SERVICE
                 </span>
               </div>
               <span className="text-[10px] font-mono-tech tracking-wider text-gray-400 uppercase hidden sm:block">
-                Integral Service S.A.C.
+                Maquinaria & Minería
               </span>
             </div>
           </button>
@@ -105,7 +105,7 @@ export const Header: React.FC<HeaderProps> = ({ currentScreen, onNavigate, onOpe
           <div className="hidden 2xl:flex items-center gap-2 px-3 py-1 bg-[#161c24] border border-white/[0.08] rounded ml-2">
             <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
             <span className="font-mono-tech text-[10px] text-gray-300 uppercase tracking-wider">
-              Grid Perú // Online
+              Sede: Chaclacayo, Lima
             </span>
           </div>
         </div>

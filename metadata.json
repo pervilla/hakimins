@@ -1,6 +1,6 @@
 {
-  "name": "Hakim Heavy Industries",
-  "description": "Plataforma corporativa y catálogo de maquinaria pesada, servicios de overhaul y tecnología autónoma para minería y construcción de Hakim Integral Service S.A.C.",
+  "name": "Hakim Integral Service",
+  "description": "Sitio corporativo y catálogo de maquinaria y servicios de Hakim Integral Service S.A.C. para la minería subterránea de pequeña y mediana escala.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": []
 }

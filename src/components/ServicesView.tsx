@@ -25,33 +25,33 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onOpenQuoteWithServi
   const overhaulPhases = [
     {
       num: '01',
-      title: 'Diagnóstico NDT & Metrología 3D',
-      desc: 'Inspección por Ultrasonido y Tintes Penetrantes en chasis, plumas y uniones soldadas. Análisis de aceites para detección de limaduras microscópicas.',
+      title: 'Recepción y Diagnóstico Inicial',
+      desc: 'Recepción del equipo e inspección inicial para levantar el estado de componentes y definir el alcance del trabajo.',
     },
     {
       num: '02',
-      title: 'Desarme Integral & Granallado',
-      desc: 'Despiece componente a componente. Decapado mediante granalla de acero hasta metal blanco para erradicar óxido y microfisuras previas.',
+      title: 'Desarmado y Evaluación',
+      desc: 'Desarme del equipo y evaluación componente por componente para determinar qué se repara y qué se reemplaza.',
     },
     {
       num: '03',
-      title: 'Barrenado y Metalmecánica Pesada',
-      desc: 'Mecanizado y barrenado portátil de alojamientos y puntos de giro. Fabricación de pasadores y bocinas con aceros aleados tratados térmicamente.',
+      title: 'Reparación Mecánica e Hidráulica',
+      desc: 'Reparación de bombas, cilindros, mandos y sistemas de rotación y percusión, con cambio de sellos y componentes según estado.',
     },
     {
       num: '04',
-      title: 'Overhaul de Tren de Potencia',
-      desc: 'Reconstrucción de motor diésel, convertidor de torque y transmisión Dana Spicer / Clark bajo tolerancias micrométricas del fabricante OEM.',
+      title: 'Reconstrucción Estructural',
+      desc: 'Recuperación y refuerzo de estructuras, plumas y chasis mediante mecanizado y soldadura según necesidad.',
     },
     {
       num: '05',
-      title: 'Banco de Pruebas Hidráulico 500 Bar',
-      desc: 'Testeo dinamométrico computarizado de bombas de pistones y distribuidores con adquisición digital de caudales y curvas de presión.',
+      title: 'Rearmado con Repuestos',
+      desc: 'Montaje del equipo con repuestos y sellos nuevos según estado y especificación del fabricante.',
     },
     {
       num: '06',
-      title: 'Entrega con Garantía Cero Horas',
-      desc: 'Pintura electrostática epóxica para ambientes ácidos de mina, montaje de cableado ignífugo nuevo y entrega de Dossier de Calidad homologado.',
+      title: 'Pruebas y Entrega',
+      desc: 'Pruebas de funcionamiento antes de la entrega, con informe técnico del trabajo y repuestos utilizados.',
     },
   ];
 
@@ -63,13 +63,13 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onOpenQuoteWithServi
         <div className="flex flex-col gap-3 border-b border-white/[0.08] pb-8">
           <div className="flex items-center gap-2 font-mono-tech text-xs text-amber-400 uppercase tracking-widest font-semibold">
             <Wrench className="w-4 h-4" />
-            <span>Capacidades de Taller & Servicio en Mina // Planta Chaclacayo & Taller Ate</span>
+            <span>Capacidades de Taller & Servicio en Mina // Planta Chaclacayo, Lima</span>
           </div>
           <h1 className="font-heading text-3xl sm:text-5xl text-white font-extrabold uppercase tracking-tight">
-            Overhaul & Soluciones Especializadas
+            Mantenimiento, Fabricación y Servicios
           </h1>
           <p className="text-sm sm:text-base text-gray-300 max-w-3xl leading-relaxed">
-            Desde la reconstrucción completa de equipos subterráneos y de superficie a estándar "Cero Horas", hasta la fabricación a medida de jumbos electrohidráulicos y tableros mineros para soportar las condiciones andinas más severas.
+            Desde el mantenimiento y overhaul de equipos subterráneos hasta la fabricación a medida de jumbos electrohidráulicos, tableros eléctricos y piezas mecánicas para las operaciones mineras del Perú.
           </p>
         </div>
 
@@ -78,15 +78,15 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onOpenQuoteWithServi
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/[0.06] pb-4">
             <div>
               <span className="font-mono-tech text-xs text-cyan-400 uppercase tracking-widest font-bold">
-                PROTOCOLO CERTIFICADO HAKIM REPOWER™
+                PROTOCOLO DE TRABAJO HAKIM
               </span>
               <h3 className="font-heading text-2xl text-white font-bold uppercase mt-1">
-                Ciclo de Reconstrucción Integral a Cero Horas
+                Ciclo de Mantenimiento y Overhaul
               </h3>
             </div>
             <div className="flex items-center gap-2 font-mono-tech text-xs text-gray-400">
               <ShieldCheck className="w-4 h-4 text-amber-400" />
-              <span>Garantía de 12 meses o 5,000 Horas</span>
+              <span>Garantía según alcance del servicio</span>
             </div>
           </div>
 
@@ -184,6 +184,27 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onOpenQuoteWithServi
                 </p>
               </div>
 
+              {/* Sub-services */}
+              {selectedService.subServices && selectedService.subServices.length > 0 && (
+                <div className="flex flex-col gap-2.5 pt-2">
+                  <span className="font-mono-tech text-xs text-gray-400 uppercase tracking-wider font-semibold">
+                    Soluciones que incluye:
+                  </span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {selectedService.subServices.map((sub, idx) => (
+                      <div key={idx} className="p-3 bg-[#161c24] rounded border border-white/[0.05] flex flex-col gap-1">
+                        <span className="font-heading text-xs font-bold text-amber-400 uppercase">
+                          {sub.title}
+                        </span>
+                        <span className="text-[11px] text-gray-400 leading-relaxed">
+                          {sub.description}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* Steps */}
               <div className="flex flex-col gap-2.5 pt-2">
                 <span className="font-mono-tech text-xs text-gray-400 uppercase tracking-wider font-semibold">
@@ -216,7 +237,7 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onOpenQuoteWithServi
               {/* Action trigger */}
               <div className="flex items-center justify-between pt-4 border-t border-white/[0.08]">
                 <div className="text-xs font-mono-tech text-gray-400">
-                  Disponibilidad de cuadrilla de rescate técnico 24/7
+                  Atención técnica en taller y en unidad minera
                 </div>
                 <button
                   onClick={() => onOpenQuoteWithService(selectedService.title)}

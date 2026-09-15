@@ -76,7 +76,7 @@ export const EquipmentDetailModal: React.FC<EquipmentDetailModalProps> = ({
           </div>
           <div className="md:col-span-7 p-6 flex flex-col justify-center gap-2">
             <span className="font-mono-tech text-[11px] text-cyan-400 uppercase tracking-widest">
-              {equipment.categoryLabel} // {equipment.partnerBrand || 'Ingeniería Hakim'}
+              {equipment.lineLabel} // {equipment.partnerBrand || 'Fabricación Hakim'}
             </span>
             <h2 className="font-heading text-2xl sm:text-3xl font-extrabold uppercase text-white tracking-tight">
               {equipment.name}
@@ -126,6 +126,14 @@ export const EquipmentDetailModal: React.FC<EquipmentDetailModalProps> = ({
           {activeTab === 'specs' && (
             <div className="flex flex-col gap-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono-tech text-xs">
+                {equipment.section && (
+                  <div className="p-3 bg-[#161c24] border border-amber-500/20 rounded flex flex-col gap-1 sm:col-span-2">
+                    <span className="text-gray-500 uppercase text-[10px]">Sección de Labor Recomendada</span>
+                    <span className="text-amber-400 font-bold text-sm">
+                      {equipment.section.minWidth}–{equipment.section.maxWidth} m ancho · {equipment.section.minHeight}–{equipment.section.maxHeight} m alto
+                    </span>
+                  </div>
+                )}
                 <div className="p-3 bg-[#161c24] border border-white/[0.06] rounded flex flex-col gap-1">
                   <span className="text-gray-500 uppercase text-[10px]">Capacidad Nominal</span>
                   <span className="text-white font-bold text-sm">{equipment.specs.capacidad}</span>
@@ -167,7 +175,7 @@ export const EquipmentDetailModal: React.FC<EquipmentDetailModalProps> = ({
               <div className="p-4 bg-[#0e141c] border border-white/[0.08] rounded text-xs text-gray-400 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-cyan-400" />
-                  <span>Todos los componentes son testeados en banco hidráulico a 500 bar bajo protocolo ISO 9001.</span>
+                  <span>Los equipos se entregan con pruebas de funcionamiento y verificación previa.</span>
                 </div>
               </div>
             </div>
@@ -202,7 +210,7 @@ export const EquipmentDetailModal: React.FC<EquipmentDetailModalProps> = ({
                     <Layers className="w-4 h-4 text-amber-400" />
                     <span className="font-heading text-xs font-bold uppercase text-white">{app}</span>
                     <p className="text-[11px] text-gray-400 leading-relaxed">
-                      Optimizado para gradientes severas, altitud sobre 4,000 msnm y ventilación reducida.
+                      Configurado según la sección de labor y las condiciones de la operación.
                     </p>
                   </div>
                 ))}

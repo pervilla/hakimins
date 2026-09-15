@@ -113,7 +113,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
 
               <div className="flex flex-wrap items-center justify-center gap-3 pt-2 w-full max-w-md">
                 <a
-                  href={`https://wa.me/51984213774?text=${whatsappMessage}`}
+                  href={`${COMPANY_INFO.whatsappLink}?text=${whatsappMessage}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 py-3 px-4 bg-emerald-600 hover:bg-emerald-500 text-white font-heading font-bold text-xs uppercase rounded flex items-center justify-center gap-2 transition-colors"
@@ -135,11 +135,11 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-amber-400 shrink-0" />
                   <span>
-                    Atención directa a operaciones mineras en Perú. RUC: {COMPANY_INFO.ruc}
+                    Atención a operaciones mineras en Perú. RUC: {COMPANY_INFO.ruc}
                   </span>
                 </div>
                 <span className="hidden sm:inline font-mono-tech text-[10px] text-cyan-400">
-                  SLA &lt; 4H
+                  Respuesta ágil
                 </span>
               </div>
 
@@ -154,14 +154,14 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   onChange={(e) => setFormData({ ...formData, tipoRequerimiento: e.target.value })}
                   className="bg-[#090f16] border border-white/[0.1] text-white text-xs font-mono-tech px-3.5 py-2.5 rounded focus:border-amber-400 focus:outline-none"
                 >
-                  <option value="Overhaul Integral de Maquinaria">Overhaul Integral de Maquinaria Pesada (Cero Horas)</option>
-                  <option value="Fabricación de Jumbos Electrohidráulicos">Fabricación de Jumbos Electrohidráulicos a Medida</option>
-                  <option value="Adquisición de Equipos de Catálogo">Adquisición / Cotización de Maquinaria de Catálogo</option>
-                  <option value="Suministro de Repuestos Críticos & Componentes">Suministro de Repuestos Críticos (Bombas, Martillos, Sellos)</option>
-                  <option value="Banco de Pruebas Hidráulico 500 Bar">Banco de Pruebas Hidráulico & Calibración</option>
-                  <option value="Tableros Eléctricos Mineros IP66">Fabricación de Tableros Eléctricos Mineros NEMA 4X / IP66</option>
-                  <option value="Telemetría Satelital Hakim Fleet OS™">Implementación de Telemetría Hakim Fleet OS™</option>
-                  <option value="Capacitación y Certificación Operacional">Capacitación y Homologación de Operadores</option>
+                  <option value="Mantenimiento, Reparación y Overhaul">Mantenimiento, Reparación y Overhaul de Equipos</option>
+                  <option value="Fabricación de Equipos a Medida">Fabricación de Jumbos y Equipos a Medida</option>
+                  <option value="Adquisición de Maquinaria">Adquisición / Cotización de Maquinaria</option>
+                  <option value="Suministro de Repuestos">Suministro de Repuestos y Componentes</option>
+                  <option value="Alquiler de Maquinaria">Alquiler de Maquinaria</option>
+                  <option value="Tableros Eléctricos">Preparación y Reparación de Tableros Eléctricos</option>
+                  <option value="Fabricación de Piezas Mecánicas">Fabricación de Piezas Mecánicas</option>
+                  <option value="Asesoramiento y Capacitación">Asesoramiento y Capacitación</option>
                 </select>
               </div>
 
@@ -285,7 +285,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
               {/* Submit Row */}
               <div className="flex items-center justify-between pt-2 border-t border-white/[0.08]">
                 <div className="text-[11px] font-mono-tech text-gray-500">
-                  Respuesta garantizada por protocolo ISO 9001
+                  Sus datos se usan solo para atender su requerimiento
                 </div>
                 <div className="flex items-center gap-3">
                   <button

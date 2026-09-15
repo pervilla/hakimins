@@ -1,5 +1,5 @@
 import React from 'react';
-import { COMPANY_INFO } from '../data/miningData';
+import { COMPANY_INFO, COMPANY_MILESTONES } from '../data/miningData';
 import { 
   Building2, 
   MapPin, 
@@ -30,10 +30,10 @@ export const CorporateView: React.FC<CorporateViewProps> = ({ onOpenQuote }) => 
             <span>Perfil Corporativo // Hakim Integral Service S.A.C.</span>
           </div>
           <h1 className="font-heading text-3xl sm:text-5xl text-white font-extrabold uppercase tracking-tight">
-            Ingeniería Pesada & Compromiso Minero
+            Maquinaria & Servicio para la Minería
           </h1>
           <p className="text-sm sm:text-base text-gray-300 max-w-3xl leading-relaxed">
-            HAKIM INTEGRAL SERVICE S.A.C. es una empresa peruana líder en servicios de mantenimiento integral, reconstrucción mayor (overhaul), fabricación de jumbos electrohidráulicos y suministro de componentes críticos para la minería y construcción.
+            HAKIM INTEGRAL SERVICE S.A.C. es una empresa peruana dedicada a la fabricación, mantenimiento, reparación y overhaul de equipos para la minería y la construcción. Nos enfocamos en la minería subterránea de pequeña y mediana escala, con maquinaria simple, de fácil operación y bajo costo de mantenimiento.
           </p>
         </div>
 
@@ -90,7 +90,7 @@ export const CorporateView: React.FC<CorporateViewProps> = ({ onOpenQuote }) => 
               Nuestra Visión
             </h3>
             <p className="text-xs text-gray-400 leading-relaxed">
-              Consolidarnos como el socio estratégico preferente de la gran y mediana minería en el Perú y Latinoamérica para el desarrollo tecnológico de maquinaria de socavón, overhaul especializado e integración de sistemas autónomos.
+              Consolidarnos como el socio estratégico de la minería subterránea de pequeña y mediana escala en el Perú, reconocidos por la fabricación, el mantenimiento y el overhaul de equipos confiables y de fácil operación.
             </p>
           </div>
 
@@ -102,8 +102,44 @@ export const CorporateView: React.FC<CorporateViewProps> = ({ onOpenQuote }) => 
               Cultura de Seguridad
             </h3>
             <p className="text-xs text-gray-400 leading-relaxed">
-              El principio rector de Cero Daño a las personas y al entorno, rigurosamente alineado con el D.S. 024-2016-EM y las certificaciones internacionales ISO 45001 e ISO 14001 en cada una de nuestras intervenciones.
+              Trabajamos con un enfoque de cero daño a las personas y al entorno, aplicando procedimientos de trabajo seguros en cada intervención en taller y en la unidad minera.
             </p>
+          </div>
+        </div>
+
+        {/* Trayectoria / Timeline */}
+        <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-1">
+            <span className="font-mono-tech text-xs text-amber-400 uppercase tracking-widest font-semibold">
+              // TRAYECTORIA
+            </span>
+            <h2 className="font-heading text-3xl font-extrabold uppercase text-white tracking-tight">
+              Nuestra Historia
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {COMPANY_MILESTONES.map((milestone, idx) => (
+              <div
+                key={idx}
+                className="relative flex flex-col gap-3 p-6 bg-[#121820] border border-white/[0.08] rounded hover:border-amber-500/40 transition-colors"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="font-mono-tech text-[10px] text-cyan-400 uppercase tracking-widest font-bold">
+                    {milestone.stage}
+                  </span>
+                  <span className="font-heading text-2xl font-extrabold text-amber-400/40">
+                    {String(idx + 1).padStart(2, '0')}
+                  </span>
+                </div>
+                <h3 className="font-heading text-base font-bold text-white uppercase">
+                  {milestone.title}
+                </h3>
+                <p className="text-xs text-gray-400 leading-relaxed">
+                  {milestone.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -144,19 +180,23 @@ export const CorporateView: React.FC<CorporateViewProps> = ({ onOpenQuote }) => 
 
         {/* Certificaciones y Marcas Homologadas */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Certificaciones */}
+          {/* Especialidades Técnicas */}
           <div className="p-6 bg-[#121820] border border-white/[0.08] rounded flex flex-col gap-4">
             <span className="font-mono-tech text-xs text-cyan-400 uppercase tracking-widest font-bold">
-              ESTÁNDARES & HOMOLOGACIONES
+              ESPECIALIDADES TÉCNICAS
             </span>
             <div className="flex flex-col gap-3">
-              {COMPANY_INFO.certifications.map((cert, idx) => (
+              {[
+                'Mantenimiento, reparación y overhaul de equipos mineros',
+                'Fabricación y diseño de jumbos electrohidráulicos',
+                'Equipos de sondaje diamantino',
+                'Tableros eléctricos',
+                'Fabricación de piezas mecánicas y refacciones',
+                'Asesoramiento y capacitación de operadores',
+              ].map((item, idx) => (
                 <div key={idx} className="flex items-center gap-3 p-3 bg-[#161c24] rounded border border-white/[0.05]">
                   <CheckCircle2 className="w-5 h-5 text-amber-400 shrink-0" />
-                  <div className="flex flex-col">
-                    <span className="font-heading text-sm font-bold text-white">{cert.code}</span>
-                    <span className="text-xs text-gray-400">{cert.name}</span>
-                  </div>
+                  <span className="text-xs text-gray-200">{item}</span>
                 </div>
               ))}
             </div>

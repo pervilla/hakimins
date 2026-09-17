@@ -16,14 +16,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreCatalog }) =>
       />
       
       {/* Multi-layer Gradients */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0e141c] via-[#0e141c]/70 to-[#090f16]/85 backdrop-brightness-[0.78]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-500/15 via-transparent to-[#0e141c]/90" />
+      <div className="hero-overlay-scrim absolute inset-0 bg-gradient-to-t from-[#0e141c]/90 via-[#0e141c]/60 to-[#090f16]/75 backdrop-brightness-[0.88]" />
+      <div className="hero-radial-scrim absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-500/15 via-transparent to-[#0e141c]/80" />
       
       {/* Grid Blueprint Line Overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
 
       {/* Hero Content */}
-      <div className="relative z-10 w-full px-4 sm:px-8 max-w-7xl mx-auto flex flex-col items-start gap-6 sm:gap-8 keep-white">
+      <div className="hero-content-light relative z-10 w-full px-4 sm:px-8 max-w-7xl mx-auto flex flex-col items-start gap-6 sm:gap-8">
         
         {/* Sector Pill */}
         <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#161c24]/90 border border-white/[0.1] backdrop-blur-md shadow-xl">
@@ -44,7 +44,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreCatalog }) =>
         <div className="flex flex-col gap-3 max-w-5xl">
           <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold uppercase text-white tracking-tight leading-[1.06]">
             Maquinaria y soporte <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffdca1] via-[#ffb800] to-[#ff9800]">
+            <span className="hero-title-accent text-transparent bg-clip-text bg-gradient-to-r from-[#ffdca1] via-[#ffb800] to-[#ff9800]">
               para tu operación minera
             </span>
           </h1>

@@ -215,12 +215,19 @@ html.light .bg-cyan-500 * {
   color: #000000 !important;
 }
 
-/* Hero Section Overlay in light mode: retains dramatic readability */
+/* Hero Section Overlay in light mode: white/gray veil instead of dark */
 html.light .hero-overlay-scrim {
-  background: linear-gradient(to top, rgba(244, 246, 249, 0.95) 0%, rgba(244, 246, 249, 0.75) 45%, rgba(244, 246, 249, 0.88) 100%) !important;
+  background: linear-gradient(to top, rgba(244, 246, 249, 0.96) 0%, rgba(244, 246, 249, 0.78) 45%, rgba(244, 246, 249, 0.9) 100%) !important;
+  backdrop-filter: none !important;
+}
+html.light .hero-radial-scrim {
+  background: radial-gradient(ellipse at top right, rgba(255, 184, 0, 0.12), transparent 55%, rgba(244, 246, 249, 0.9)) !important;
 }
 html.light .hero-content-light h1 {
   color: #0a1017 !important;
+}
+html.light .hero-title-accent {
+  background-image: linear-gradient(to right, #b45309, #d97706, #ea580c) !important;
 }
 html.light .hero-content-light p {
   color: #334155 !important;

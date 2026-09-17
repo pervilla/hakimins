@@ -20,6 +20,11 @@ export interface EquipmentSection {
   maxHeight: number;
 }
 
+export interface EquipmentSpecGroup {
+  title: string;
+  items: { label: string; value: string }[];
+}
+
 export interface Equipment {
   id: string;
   name: string;
@@ -36,6 +41,8 @@ export interface Equipment {
   partnerBrand?: string;
   isAutonomous?: boolean;
   section?: EquipmentSection;
+  brochureUrl?: string;
+  specGroups?: EquipmentSpecGroup[];
   specs: {
     capacidad: string;
     potencia: string;

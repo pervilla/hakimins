@@ -6,7 +6,8 @@ import {
   Wrench, 
   ShieldCheck, 
   Layers, 
-  MessageSquare
+  MessageSquare,
+  FileDown
 } from 'lucide-react';
 
 interface EquipmentDetailModalProps {
@@ -162,6 +163,31 @@ export const EquipmentDetailModal: React.FC<EquipmentDetailModalProps> = ({
                 )}
               </div>
 
+              {equipment.specGroups && equipment.specGroups.length > 0 && (
+                <div className="flex flex-col gap-4 pt-2">
+                  <span className="font-mono-tech text-xs text-amber-400 uppercase tracking-wider font-semibold">
+                    Especificaciones Detalladas
+                  </span>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {equipment.specGroups.map((group, gi) => (
+                      <div key={gi} className="p-4 bg-[#161c24] border border-white/[0.06] rounded flex flex-col gap-2">
+                        <span className="font-heading text-sm font-bold text-white uppercase border-b border-white/[0.08] pb-1.5">
+                          {group.title}
+                        </span>
+                        <div className="flex flex-col">
+                          {group.items.map((item, ii) => (
+                            <div key={ii} className="flex justify-between gap-3 py-1 border-b border-white/[0.04] last:border-0 font-mono-tech text-[11px]">
+                              <span className="text-gray-500">{item.label}</span>
+                              <span className="text-gray-200 text-right">{item.value}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               <div className="p-4 bg-[#0e141c] border border-white/[0.08] rounded text-xs text-gray-400 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-cyan-400" />
@@ -211,15 +237,28 @@ export const EquipmentDetailModal: React.FC<EquipmentDetailModalProps> = ({
 
         {/* Modal Bottom Actions */}
         <div className="p-4 sm:p-6 bg-[#0e141c] border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-3">
-          <a
-            href={`${COMPANY_INFO.whatsappLink}?text=${encodeURIComponent(`Hola Hakim Integral Service, quisiera información del ${equipment.name}.`)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto px-4 py-2.5 bg-[#1e2632] hover:bg-[#283242] text-emerald-300 hover:text-emerald-200 text-xs font-mono-tech uppercase rounded flex items-center justify-center gap-2 border border-white/[0.08] transition-colors"
-          >
-            <MessageSquare className="w-4 h-4" />
-            <span>Consultar por WhatsApp</span>
-          </a>
+          <div className="flex flex-col sm:flex-row items-center gap-2 w-full sm:w-auto">
+            {equipment.brochureUrl && (
+              <a
+                href={equipment.brochureUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-4 py-2.5 bg-[#1e2632] hover:bg-[#283242] text-cyan-300 hover:text-cyan-200 text-xs font-mono-tech uppercase rounded flex items-center justify-center gap-2 border border-cyan-500/30 transition-colors"
+              >
+                <FileDown className="w-4 h-4" />
+                <span>Descargar Ficha PDF</span>
+              </a>
+            )}
+            <a
+              href={`${COMPANY_INFO.whatsappLink}?text=${encodeURIComponent(`Hola Hakim Integral Service, quisiera información del ${equipment.name}.`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto px-4 py-2.5 bg-[#1e2632] hover:bg-[#283242] text-emerald-300 hover:text-emerald-200 text-xs font-mono-tech uppercase rounded flex items-center justify-center gap-2 border border-white/[0.08] transition-colors"
+            >
+              <MessageSquare className="w-4 h-4" />
+              <span>Consultar por WhatsApp</span>
+            </a>
+          </div>
 
           <div className="flex items-center gap-3 w-full sm:w-auto">
             <button
